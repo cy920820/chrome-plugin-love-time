@@ -1,0 +1,66 @@
+{
+  "manifest_version": 2, // 清单版本
+  "name": "weather", // 插件姓名
+  "version": "1.0.0", // 插件版本
+  "description": "简单易用的Chrome天气插件", // 插件描述
+  "icons": { // 图标
+
+  },
+
+  "background": { // 一直常驻后台的js或后台页面
+    // 指定页面
+    "page": "background.html"
+    // "script": ["js/background.js"] 自动生成页面
+  },
+
+  // 浏览器右上角图标设置 broswer_action / page_action / app
+  "browser_action": {
+    "default_icon": "images/icon.png",
+    "default_title": "title", // 图标悬停时显示的文字
+    "default_popup": "popup.html"
+  },
+
+  // "page_action": { // 特定页面才显示的图标
+  //   "default_icon": "images/icon.png",
+  //   "default_title": "title",
+  //   "default_popup": "popup.html"
+  // }
+
+  "content_scripts": [ // 需要直接注入页面js
+    {
+      "matches": ["<all_urls>"], // 匹配所有地址
+      "js": ["js/jquery-1.12.4.js", "js/content-script.js"], // 注入的js
+      "css": ["css/custom.css"], // 注入的css
+      "run_at": "document_start" // 代码注入时间
+    }
+    // 仅仅展示content_scripts可以配置多个规则
+    // {
+    //   "matches": ["*://*/*.png", "*://*/*.jpg", "*://*/*.gif", "*://*/*.bmp"],
+		// 	"js": ["js/show-image-content-size.js"]
+    // }
+  ],
+
+  "permissions": [ // 权限申请
+    "contextMenus", // 右键菜单
+    "tabs", // 标签
+    "notifications", // 通知
+    "webRequest", // web请求
+    "webRequestBlocking", // 阻塞式web请求
+    "storage", // 本地存储
+    "http://*/*", // 可以通过executeScript或者insertCSS访问的网站
+    "https://*/*" // 可以通过executeScript或者insertCSS访问的网站
+  ],
+  "web_accessible_resources": ["js/inject.js"], // 普通页面能够直接访问的插件资源列表，如果不设置是无法直接访问的
+  "homepage_url": "https://www.bbtfax.com", // 插件主页, 免费广告位
+  "chrome_url_overrides": { // 覆盖浏览器默认页面
+    "newtab": "newtab.html" // 覆盖默认标签页
+  },
+  // "options_page": "options.html", // Chrome40以前的插件配置页写法,
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true // 添加默认样式
+  },
+  "omnibox": { "keyword": "go"  }, // 地址栏注册一个关键字以提供搜索建议，只能设置一个关键字
+  "default_locale": "zh_CN", // 默认语言
+  "devtools_page": "devtools.html" // devtools页面入口, 注意只能指向一个HTML文件, 不能是js
+}
