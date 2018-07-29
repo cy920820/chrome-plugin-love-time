@@ -1,36 +1,49 @@
 {
+  // Required
   "manifest_version": 2, // 清单版本
-  "name": "weather", // 插件姓名
+  "name": "Weather for Chrome", // 插件姓名
   "version": "1.0.0", // 插件版本
+  "author": "Cui-y", // 作者
+
+  // Recommended
   "description": "简单易用的Chrome天气插件", // 插件描述
+  "default_locale": "zh_CN", // 默认语言, 国际化标准(多语言支持)
   "icons": { // 图标
-
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
   },
 
-  "background": { // 一直常驻后台的js或后台页面
-    // 指定页面
-    "page": "background.html"
-    // "script": ["js/background.js"] 自动生成页面
-  },
-
-  // 浏览器右上角图标设置 broswer_action / page_action / app
+  // Pick one (or none)
+  
+  // 浏览器操作（时刻显示）
   "browser_action": {
-    "default_icon": "images/icon.png",
-    "default_title": "title", // 图标悬停时显示的文字
-    "default_popup": "popup.html"
+    "default_icon": "images/icon.png", // 图标 / 徽章
+    "default_title": "View Weather Info", // 图标悬停时显示的文字
+    "default_popup": "popup.html" // 弹框
   },
-
+  // 页面操作（不是时刻显示）
   // "page_action": { // 特定页面才显示的图标
   //   "default_icon": "images/icon.png",
   //   "default_title": "title",
   //   "default_popup": "popup.html"
   // }
 
+  "background": { // 后台脚本用于管理事件，chrome扩展是基于事件的程序
+    // 指定页面
+    "page": "background.html",
+    "persistent": false
+    // "script": ["js/background.js"] 自动生成页面
+  },
+
+  
+  // 声明式注入内容脚本：在网页上下文中运行.
+  // 可以注入js、css或者两者
   "content_scripts": [ // 需要直接注入页面js
     {
-      "matches": ["<all_urls>"], // 匹配所有地址
+      "matches": ["<all_urls>"], // 指定注入内容脚本的页面
       "js": ["js/jquery-1.12.4.js", "js/content-script.js"], // 注入的js
-      "css": ["css/custom.css"], // 注入的css
+      "css": ["css/reset.css"], // 注入的css
       "run_at": "document_start" // 代码注入时间
     }
     // 仅仅展示content_scripts可以配置多个规则
@@ -40,7 +53,8 @@
     // }
   ],
 
-  "permissions": [ // 权限申请
+  // 声明权限
+  "permissions": [
     "contextMenus", // 右键菜单
     "tabs", // 标签
     "notifications", // 通知
@@ -50,17 +64,24 @@
     "http://*/*", // 可以通过executeScript或者insertCSS访问的网站
     "https://*/*" // 可以通过executeScript或者insertCSS访问的网站
   ],
-  "web_accessible_resources": ["js/inject.js"], // 普通页面能够直接访问的插件资源列表，如果不设置是无法直接访问的
+
+  "web_accessible_resources": ["js/inject.js"], // web可访问资源
   "homepage_url": "https://www.bbtfax.com", // 插件主页, 免费广告位
   "chrome_url_overrides": { // 覆盖浏览器默认页面
-    "newtab": "newtab.html" // 覆盖默认标签页
+    "newtab": "newtab.html" // 覆盖默认标签页还可以是:bookmarks, history
   },
-  // "options_page": "options.html", // Chrome40以前的插件配置页写法,
-  "options_ui": {
-    "page": "options.html",
-    "chrome_style": true // 添加默认样式
+
+  // 扩展选项页面
+  // "options_page": "options.html", // Chrome40以前的插件配置页写法, 整页显示
+  "options_ui": { // 嵌入式显示
+    "page": "options.html", // 路径
+    "chrome_style": true, // 添加默认样式
+    "open_in_tab": false // 声明嵌入而不是新打开的标签页
   },
-  "omnibox": { "keyword": "go"  }, // 地址栏注册一个关键字以提供搜索建议，只能设置一个关键字
-  "default_locale": "zh_CN", // 默认语言
+
+  "omnibox": { // 地址栏注册一个关键字以提供搜索建议，只能设置一个关键字
+    "keyword": "go"
+  },
+
   "devtools_page": "devtools.html" // devtools页面入口, 注意只能指向一个HTML文件, 不能是js
 }
