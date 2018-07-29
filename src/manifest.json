@@ -1,7 +1,7 @@
 {
   // Required
   "manifest_version": 2, // 清单版本
-  "name": "Weather for Chrome", // 插件姓名
+  "name": "LoveTime for Chrome", // 插件姓名
   "version": "1.0.0", // 插件版本
   "author": "Cui-y", // 作者
 
