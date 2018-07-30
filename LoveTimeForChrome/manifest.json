@@ -1,0 +1,47 @@
+{
+  "manifest_version": 2,
+  "name": "LoveTime for Chrome",
+  "version": "1.0.0",
+  "author": "Cui-y",
+  "description": "一个超温馨的恋爱时间统计 for Cui Yang && Zhou Qiannan",
+  "default_locale": "zh_CN",
+  "icons": {
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  },
+  "browser_action": {
+    "default_icon": "images/icon.png",
+    "default_title": "Cui Yang Love Zhou Qiannan",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "page": "background.html",
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/jquery-1.12.4.js"],
+      "css": ["css/reset.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "notifications",
+    "storage",
+    "http://*/*",
+    "https://*/*"
+  ],
+
+  "web_accessible_resources": ["js/inject.js"],
+  "homepage_url": "https://www.bbtfax.com",
+  "chrome_url_overrides": {
+  },
+  "omnibox": {
+    "keyword": "go"
+  },
+  "devtools_page": "devtools.html"
+}
