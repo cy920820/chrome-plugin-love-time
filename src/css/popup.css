@@ -1,5 +1,8 @@
 .popup-container {
+  position: relative;
   width: 600px;
+  background: url(../images/love-bg.jpg) no-repeat;
+  background-size: 100%;
 }
 
 .flip-clock-wrapper ul li a div div.inn {
@@ -40,7 +43,7 @@
 
 .flip-clock-divider {
   width: 1rem;
-  height: 5rem;
+  height: 4rem;
 }
 
 .flip-clock-divider .flip-clock-label {
@@ -56,5 +59,94 @@
 }
 
 .flip-clock-wrapper {
-  margin: 3rem 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.images {
+  display: flex;
+  padding: 30px 25px 50px;
+}
+
+.images > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 190px;
+  height: 157px;
+}
+
+.images div.images-no1 {
+  background: url(../images/frame.jpg) no-repeat;
+  background-size: 90% 97%;
+  background-position: center;
+}
+
+.images div.images-no2 {
+  background: url(../images/frame2.jpg) no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+
+.images div.images-no3 {
+  background: url(../images/frame.jpg) no-repeat;
+  background-size: 90% 97%;
+  background-position: center;
+}
+
+.images img {
+  width: 146px;
+  height: 120px;
+}
+
+.images-no1 {
+  transform: rotate(-15deg)
+}
+
+.images-no2 img {
+  padding: 0;
+  width: 134px;
+  height: 94px;
+  padding-left: 5px;
+  padding-bottom: 4px;
+  transform: rotate(-11deg)
+}
+
+.images-no3 {
+  transform: rotate(15deg);
+  margin-left: 5px;
+}
+
+.docs {
+  width: 250px;
+  height: 100px;
+  overflow: hidden;
+  margin-bottom: 27px;
+  background: url(../images/docs.png) no-repeat;
+  background-position: -35px -205px;
+  background-size: 250%;
+}
+
+.fly {
+  position: absolute;
+}
+
+.fly-1 {
+  bottom: 147px;
+  left: 3px;
+  width: 60px;
+  height: 48px;
+  background: url(../images/fly-1.jpg) no-repeat;
+  background-size: cover;
+}
+
+.fly-2 {
+  bottom: 111px;
+  right: 8px;
+  width: 133px;
+  height: 78px;
+  background: url(../images/fly-2.jpg) no-repeat;
+  background-size: cover;
 }

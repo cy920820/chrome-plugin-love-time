@@ -1,12 +1,12 @@
 {
   // Required
   "manifest_version": 2, // 清单版本
-  "name": "LoveTime for Chrome", // 插件姓名
+  "name": "Y&&N LoveTime for Chrome", // 插件姓名
   "version": "1.0.0", // 插件版本
   "author": "Cui-y", // 作者
 
   // Recommended
-  "description": "一个超温馨的恋爱时间统计面板插件", // 插件描述
+  "description": "一个超温馨的恋爱时间统计 for Cui Yang && Zhou Qiannan", // 插件描述
   "default_locale": "zh_CN", // 默认语言, 国际化标准(多语言支持)
   "icons": { // 图标
     "16": "images/icon.png",
@@ -19,7 +19,7 @@
   // 浏览器操作（时刻显示）
   "browser_action": {
     "default_icon": "images/icon.png", // 图标 / 徽章
-    "default_title": "Cui Yang Love Zhou Qian Nan", // 图标悬停时显示的文字
+    "default_title": "Cui Yang Love Zhou Qiannan", // 图标悬停时显示的文字
     "default_popup": "popup.html" // 弹框
   },
   // 页面操作（不是时刻显示）
