@@ -6,7 +6,7 @@
   "author": "Cui-y", // 作者
 
   // Recommended
-  "description": "简单易用的Chrome天气插件", // 插件描述
+  "description": "一个超温馨的恋爱时间统计面板插件", // 插件描述
   "default_locale": "zh_CN", // 默认语言, 国际化标准(多语言支持)
   "icons": { // 图标
     "16": "images/icon.png",
@@ -19,7 +19,7 @@
   // 浏览器操作（时刻显示）
   "browser_action": {
     "default_icon": "images/icon.png", // 图标 / 徽章
-    "default_title": "View Weather Info", // 图标悬停时显示的文字
+    "default_title": "Cui Yang Love Zhou Qian Nan", // 图标悬停时显示的文字
     "default_popup": "popup.html" // 弹框
   },
   // 页面操作（不是时刻显示）
@@ -42,7 +42,7 @@
   "content_scripts": [ // 需要直接注入页面js
     {
       "matches": ["<all_urls>"], // 指定注入内容脚本的页面
-      "js": ["js/jquery-1.12.4.js", "js/content-script.js"], // 注入的js
+      "js": ["js/jquery-1.12.4.js"], // 注入的js
       "css": ["css/reset.css"], // 注入的css
       "run_at": "document_start" // 代码注入时间
     }
@@ -58,8 +58,8 @@
     "contextMenus", // 右键菜单
     "tabs", // 标签
     "notifications", // 通知
-    "webRequest", // web请求
-    "webRequestBlocking", // 阻塞式web请求
+    // "webRequest", // web请求
+    // "webRequestBlocking", // 阻塞式web请求
     "storage", // 本地存储
     "http://*/*", // 可以通过executeScript或者insertCSS访问的网站
     "https://*/*" // 可以通过executeScript或者insertCSS访问的网站
@@ -68,16 +68,16 @@
   "web_accessible_resources": ["js/inject.js"], // web可访问资源
   "homepage_url": "https://www.bbtfax.com", // 插件主页, 免费广告位
   "chrome_url_overrides": { // 覆盖浏览器默认页面
-    "newtab": "newtab.html" // 覆盖默认标签页还可以是:bookmarks, history
+    // "newtab": "newtab.html" // 覆盖默认标签页还可以是:bookmarks, history
   },
 
   // 扩展选项页面
   // "options_page": "options.html", // Chrome40以前的插件配置页写法, 整页显示
-  "options_ui": { // 嵌入式显示
-    "page": "options.html", // 路径
-    "chrome_style": true, // 添加默认样式
-    "open_in_tab": false // 声明嵌入而不是新打开的标签页
-  },
+  // "options_ui": { // 嵌入式显示
+  //   "page": "options.html", // 路径
+  //   "chrome_style": true, // 添加默认样式
+  //   "open_in_tab": false // 声明嵌入而不是新打开的标签页
+  // },
 
   "omnibox": { // 地址栏注册一个关键字以提供搜索建议，只能设置一个关键字
     "keyword": "go"
